@@ -1,0 +1,125 @@
+SMALL QUESTIONS 
+Q)Create a GitHub release for any repository using tag 1.0.0. & Q)Create a github tag for any repository.
+	Create a tag:
+		git tag 1.0.0
+	Push the tag to GitHub:
+		git push origin 1.0.0
+		
+Q)Create a git branch from master branch.
+	Switch to the master branch:
+		git checkout master
+
+	Create and switch to a new branch:
+		git checkout -b new-branch
+
+	Push the new branch to the repository:
+		git push origin new-branch
+
+Q)Show demo of git checkout,status and stash commands.
+For checkout, switch branches:
+	git checkout branch-name
+
+For status, display changes:
+	git status
+
+For stash, save changes temporarily:
+	git stash
+
+Q)Execute and store the output of following commands to a file
+ls,pwd,who,echo hello
+	{ ls; pwd; who; echo hello; } > output.txt
+	
+Q) Use the below commands
+chmod,chown,grep
+	1.chmod:
+		chmod 755 file.txt
+	2.chown
+		sudo chown user:group myfile.txt
+	3. grep
+		grep "pattern" myfile.txt
+Q) Execute following commands:
+ls,cd, rm,delete directory
+
+
+
+***********JENKINS**********
+Q) Consider the given Nodejs project available on your machine and create a github Jenkin pipeline to demostrate to cloning to
+workspace.
+	Steps:
+		1.Consider the given project
+		2.Install & Config ngrok
+			sudo snap install ngrok
+			ngrok config add-authtoken $YOUR_AUTHTOKEN
+		2.Create a github webhook using ngrok
+			ngrok http http://localhost:8080 & copy forwarding url and make github webhook using this 
+			url/github-webhook
+		3.Create a pipeline in jenkins and build 
+
+
+Q) Consider the given Java project available on your machine and create a github pipeline to demostrate to run junit test and generate report.
+	Steps:
+		1.Unzip project
+		2.Install Maven
+			sudo apt-get install maven
+			mvn --version
+		3.Open pom.xml and change line 63 maven and java version
+		5.sudo npm install junit-viewer -g
+		4.Create Jenkinsfile for Java Project
+		5.Make Jenkins Pipeline using the git repo link (Same as NodeJs Project)
+		6.See report on web browser
+			sudo chmod 777 reports.html
+
+
+
+
+************DOCKER************
+To install docker
+	sudo snap install docker
+After installing docker do
+	sudo systemctl enable docker --now
+	
+Commands:
+	1) To add user group (to avoid sudo)
+		sudo usermod -aG docker userName
+	2) To check username
+		getent group docker
+	3) Restart Docker
+		sudo systemctl restart docker
+	4) Change current group to docker
+		newgrp docker
+		
+Q) Pull any docker image from hub and run it
+	Go to website docker pull ubuntu image (HUB)
+Commands:
+	1. docker pull ubuntu
+	2. docker images
+	3. docker run -i -t imgName/imgId /bin/bash
+	4. docker ps -a
+	5. To delete container
+		docker rm containerId
+	6. To delete image
+		docker rmi imgId
+PORT MAPPING:
+	commands:
+		1. docker run -d --restrat=always -p 80:80 imgId
+		2. docker exec -it containerId /bin/bash
+		
+
+
+Q. Write a docker compose file for mysql installation
+	create docker_compose.yml
+	
+	To run:
+		docker compose up -d
+		sudo docker exec -it containerId /bin/bash
+		mysql -u username -p
+		
+Q. Pull a ubuntu image from docker hub and execute ls command
+	docker pull ubuntu
+	docker run --rm ubuntu ls
+	
+
+Q. Start a docker container of any image and expose port 9000 from it
+	docker pull nginx
+	docker run -d -p 9000:80 nginx
+	
